@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="A minimal portfolio with four project spaces, files, and links.">
+  <title>Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2320201e'/%3E%3Cpath d='M18 18h28v8H26v20h-8z' fill='%23f8f7f4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a href="#works" class="skip-link">Skip to work</a>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="#" aria-label="Portfolio, back to top"><span class="brand-mark" aria-hidden="true"></span><span>PORTFOLIO</span></a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a class="current" href="#works">Work</a>
+        <button class="text-button" id="about-open">About</button>
+        <button class="manage-button" id="manage-open">Manage work <span aria-hidden="true">↗</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="works" id="works" aria-labelledby="works-heading">
+        <div class="section-label"><h1 id="works-heading">SELECTED WORK</h1><span class="work-count">01 — 04</span></div>
+        <div class="tabs" role="tablist" aria-label="Select a project">
+          <button type="button" class="work-tab" id="tab-0" role="tab" aria-selected="true" aria-controls="project-panel" data-slot="0"><span class="tab-index">01</span><span class="tab-name">Project 01</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" class="work-tab" id="tab-1" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="1" tabindex="-1"><span class="tab-index">02</span><span class="tab-name">Project 02</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" class="work-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="2" tabindex="-1"><span class="tab-index">03</span><span class="tab-name">Project 03</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" class="work-tab" id="tab-3" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="3" tabindex="-1"><span class="tab-index">04</span><span class="tab-name">Project 04</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
+        </div>
+        <div class="project-panel" id="project-panel" role="tabpanel" aria-labelledby="tab-0" tabindex="0">
+          <div class="stage" id="stage">
+            <span class="stage-topline">YOUR NEXT GREAT THING</span>
+            <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span><span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+            <div class="empty-state" id="empty-state"><span class="empty-index" id="empty-index" aria-hidden="true">01</span><p class="empty-title">A space for project 01.</p><p class="empty-copy">Add a file or a link when you're ready.</p><button type="button" class="add-button" id="add-work"><span aria-hidden="true">＋</span> <span class="button-label" id="add-work-label">Add project</span></button></div>
+            <div class="media-container" id="media-container" hidden></div>
+            <span class="stage-bottomline" id="stage-bottomline">EMPTY CANVAS, ENDLESS POSSIBILITIES.</span>
+          </div>
+          <div class="project-caption"><div class="caption-content"><h2 id="project-title">Project 01</h2><p id="project-description">Work in progress.</p><div class="project-links" id="project-links" aria-label="Project links" hidden><a id="git-link" target="_blank" rel="noopener noreferrer" hidden>Git repository <span aria-hidden="true">↗</span></a><a id="itch-link" target="_blank" rel="noopener noreferrer" hidden>itch.io <span aria-hidden="true">↗</span></a></div></div><div class="caption-actions"><span class="project-category" id="project-category">COMING SOON</span><button type="button" class="text-button edit-button" id="edit-work" hidden>Edit project <span aria-hidden="true">↗</span></button></div></div>
+        </div>
+        <div class="work-navigation"><span id="page-indicator">01 / 04</span><div><button type="button" class="arrow-button" id="prev-work" aria-label="Previous project">←</button><button type="button" class="arrow-button" id="next-work" aria-label="Next project">→</button></div></div>
+      </section>
+    </main>
+    <footer class="footer"><span>Room for what's next.</span><span>© <span id="year">2026</span> Portfolio</span><a href="#" aria-label="Back to top">BACK TO TOP <span aria-hidden="true">↑</span></a></footer>
+  </div>
+
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="editor-form">
+      <div class="dialog-heading"><p class="eyebrow" id="editor-slot">PROJECT 01</p><button type="button" class="close-button" data-close="editor" aria-label="Close project editor">×</button></div>
+      <h2 id="editor-title">Add a project.</h2>
+      <p class="dialog-note">Add a file, a link, or both. Changes are saved in this browser only.<br>To publish your finished work, share it in the chat.</p>
+      <label class="field-label" for="work-title">Project name</label><input id="work-title" name="title" maxlength="40" placeholder="Give your project a name" required>
+      <label class="field-label" for="work-category">Category <span>Optional</span></label><input id="work-category" name="category" maxlength="24" placeholder="e.g. Game design / Photography / Branding">
+      <label class="field-label" for="work-description">Short description <span>Optional</span></label><textarea id="work-description" name="description" rows="2" maxlength="180" placeholder="A few words about this project"></textarea>
+      <label class="field-label" for="work-git">Git repository URL <span>Optional · GitHub / GitLab / other</span></label><input type="url" id="work-git" name="gitUrl" maxlength="2048" placeholder="https://github.com/username/project" inputmode="url" autocomplete="off" spellcheck="false" aria-describedby="links-note">
+      <label class="field-label" for="work-itch">itch.io URL <span>Optional</span></label><input type="url" id="work-itch" name="itchUrl" maxlength="2048" placeholder="https://username.itch.io/project" inputmode="url" autocomplete="off" spellcheck="false" aria-describedby="links-note">
+      <p class="links-note" id="links-note">Links work without a file. They open in a new tab.</p>
+      <label class="upload-area" id="upload-area" for="work-file"><span class="upload-plus" aria-hidden="true">＋</span><strong id="file-label">Choose a file or drop it here</strong><span>JPG, PNG, WebP, GIF, PDF, MP4, WebM · Up to 100 MB</span><input type="file" id="work-file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf,video/mp4,video/webm"></label>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="remove-button" type="button" id="remove-work" hidden>Remove project</button><button class="save-button" type="submit" id="save-work">Save preview <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="about" aria-labelledby="about-title"><div class="dialog-heading"><p class="eyebrow">ABOUT THIS SPACE</p><button class="close-button" data-close="about" aria-label="Close about">×</button></div><h2 id="about-title">Work in progress.</h2><p class="about-copy">A collection of ideas and experiments.<br>Four spaces for the projects to come.</p><p class="about-small">New work will appear here when it's ready.</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
