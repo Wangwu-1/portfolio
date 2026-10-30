@@ -1,10 +1,10 @@
 # Portfolio
 
-A minimal English portfolio with four project slots, file previews, and optional Git repository and itch.io links. No build step or dependencies are required.
+A minimal English portfolio with four project slots, published media, and optional Git repository and itch.io links. Visitors read the same published `projects.json` file. No build step or external backend is required.
 
 ## Publish with GitHub Pages
 
-1. Put all five files from this folder at the repository root: `index.html`, `style.css`, `app.js`, `.nojekyll`, and this `README.md`.
+1. Put `index.html`, `style.css`, `app.js`, `publisher.js`, `projects.json`, `.nojekyll`, and this `README.md` at the repository root.
 2. Push them to the `main` branch.
 3. In the repository's **Settings → Pages**, select **Deploy from a branch**, then **main** and **/ (root)**.
 4. Wait for deployment to finish and use the website URL shown by GitHub Pages. The repository URL displays source code; the Pages URL opens the portfolio.
@@ -17,11 +17,19 @@ Choose repository and website visibility deliberately. A public repository makes
 
 ## Editing projects
 
-Select one of the four project tabs, then click **Manage work**. You can add a name, category, short description, a file, a Git repository URL, and an itch.io URL. A project can contain links without a file.
+Open [the live portfolio](https://wangwu-1.github.io/portfolio/), select a project tab, and click **Manage work**. To authorize publishing, use a fine-grained GitHub personal access token belonging to `Wangwu-1` with access to **only `portfolio`** and **Contents: Read and write**. A creation link with those permission fields prefilled is provided in the page; explicitly select the `portfolio` repository in GitHub before generating the token.
 
-**Save preview** stores edits only in the current browser using IndexedDB. These edits are not committed to GitHub, uploaded to a server, or synced across devices. Moving from a local file or another website to the Pages URL starts a separate browser storage area. Keep your original files.
+The token is held only in this tab's memory and sent only to `https://api.github.com`. It is not written to browser storage, the source repository, project JSON, or URLs. Reloading, closing the tab, or signing out clears it. Do not paste credentials into the chat or commit them to the repository. Token creation is documented in [GitHub's guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-To show the same finished work to all visitors, include its assets and project data in the site source and publish an updated commit. This package does not include a cloud upload backend.
+Add a name, optional category and description, a file, or Git / itch.io links. **Save & publish** commits the selected project and any new media to GitHub. Other slots are preserved. After GitHub Pages deploys the commit, everyone sees the same content. The page reports when a commit is saved and checks whether the public version has appeared; deployment is not instantaneous.
+
+Supported files: JPG, PNG, WebP, GIF, PDF, MP4, and WebM, up to 100 MiB each. Uploaded files and all committed project details become public, including in Git history. Removing a project removes it from the current portfolio; old media and history are retained.
+
+## Migrate earlier local previews
+
+Older versions saved projects in IndexedDB under `liubai-portfolio-v1`, separately for every browser and origin. This version detects those local drafts and offers **Review saved drafts**. Authenticate as the owner, review each draft, and use **Save & publish**. A draft is removed from local storage only after its commit succeeds. Unpublished drafts never appear in the public portfolio.
+
+If the drafts were saved in the original local HTML, refresh the updated copy of that same file in that same browser. Opening the GitHub address does not grant access to data saved under a local file URL. The local HTML also reads the public portfolio but can review its own old browser drafts.
 
 ## Local preview
 

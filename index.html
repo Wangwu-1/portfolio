@@ -7,8 +7,9 @@
   <meta name="description" content="A minimal portfolio with four project spaces, files, and links.">
   <title>Portfolio</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2320201e'/%3E%3Cpath d='M18 18h28v8H26v20h-8z' fill='%23f8f7f4'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
+  <link rel="stylesheet" href="./style.css?v=publish-1">
+  <script src="./publisher.js?v=publish-1" defer></script>
+  <script src="./app.js?v=publish-1" defer></script>
 </head>
 <body>
   <a href="#works" class="skip-link">Skip to work</a>
@@ -25,17 +26,21 @@
     <main>
       <section class="works" id="works" aria-labelledby="works-heading">
         <div class="section-label"><h1 id="works-heading">SELECTED WORK</h1><span class="work-count">01 — 04</span></div>
+        <div class="owner-session" id="owner-session" hidden><span>Publishing as <strong>Wangwu-1</strong></span><button class="text-button" id="disconnect-github" type="button">Disconnect</button></div>
+        <div class="notice" id="load-status" role="status" aria-live="polite"><p id="load-message">Loading published work…</p><button class="text-button" id="retry-load" type="button" hidden>Retry</button></div>
+        <div class="notice draft-notice" id="draft-notice" hidden><p id="draft-message">Local drafts found in this browser. They are not public yet.</p><button class="text-button" id="review-drafts" type="button">Review saved drafts <span aria-hidden="true">↗</span></button></div>
+        <div class="notice publish-notice" id="publish-notice" role="status" aria-live="polite" hidden><p id="publish-message"></p><button class="text-button" id="retry-publish-status" type="button" hidden>Check status</button></div>
         <div class="tabs" role="tablist" aria-label="Select a project">
           <button type="button" class="work-tab" id="tab-0" role="tab" aria-selected="true" aria-controls="project-panel" data-slot="0"><span class="tab-index">01</span><span class="tab-name">Project 01</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
           <button type="button" class="work-tab" id="tab-1" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="1" tabindex="-1"><span class="tab-index">02</span><span class="tab-name">Project 02</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
           <button type="button" class="work-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="2" tabindex="-1"><span class="tab-index">03</span><span class="tab-name">Project 03</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
           <button type="button" class="work-tab" id="tab-3" role="tab" aria-selected="false" aria-controls="project-panel" data-slot="3" tabindex="-1"><span class="tab-index">04</span><span class="tab-name">Project 04</span><span class="tab-status">Empty</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
         </div>
-        <div class="project-panel" id="project-panel" role="tabpanel" aria-labelledby="tab-0" tabindex="0">
+        <div class="project-panel" id="project-panel" role="tabpanel" aria-labelledby="tab-0" aria-busy="true" tabindex="0">
           <div class="stage" id="stage">
             <span class="stage-topline">YOUR NEXT GREAT THING</span>
             <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span><span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
-            <div class="empty-state" id="empty-state"><span class="empty-index" id="empty-index" aria-hidden="true">01</span><p class="empty-title">A space for project 01.</p><p class="empty-copy">Add a file or a link when you're ready.</p><button type="button" class="add-button" id="add-work"><span aria-hidden="true">＋</span> <span class="button-label" id="add-work-label">Add project</span></button></div>
+            <div class="empty-state" id="empty-state"><span class="empty-index" id="empty-index" aria-hidden="true">01</span><p class="empty-title">Loading published work…</p><p class="empty-copy">Please wait a moment.</p><button type="button" class="add-button" id="add-work" hidden><span aria-hidden="true">＋</span> <span class="button-label" id="add-work-label">Add project</span></button></div>
             <div class="media-container" id="media-container" hidden></div>
             <span class="stage-bottomline" id="stage-bottomline">EMPTY CANVAS, ENDLESS POSSIBILITIES.</span>
           </div>
@@ -47,11 +52,29 @@
     <footer class="footer"><span>Room for what's next.</span><span>© <span id="year">2026</span> Portfolio</span><a href="#" aria-label="Back to top">BACK TO TOP <span aria-hidden="true">↑</span></a></footer>
   </div>
 
+  <dialog id="github-auth" aria-labelledby="auth-title">
+    <form id="auth-form" method="dialog" autocomplete="off">
+      <div class="dialog-heading"><p class="eyebrow">OWNER ACCESS</p><button type="button" class="close-button" data-close="github-auth" aria-label="Close GitHub connection">×</button></div>
+      <h2 id="auth-title">Publish your work.</h2>
+      <p class="dialog-note">Connect a GitHub token for <strong>Wangwu-1/portfolio</strong> to edit this public portfolio.</p>
+      <ol class="auth-steps">
+        <li><a href="https://github.com/settings/personal-access-tokens/new?name=Portfolio%20publisher&amp;target_name=Wangwu-1&amp;expires_in=30&amp;contents=write" target="_blank" rel="noopener noreferrer">Create a fine-grained token <span aria-hidden="true">↗</span></a> using your <strong>Wangwu-1</strong> account.</li>
+        <li>Choose <strong>Only select repositories</strong>, then select <strong>portfolio</strong>.</li>
+        <li>Under repository permissions, set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+      </ol>
+      <label class="field-label" for="github-token">GitHub token</label><input type="password" id="github-token" name="githubToken" placeholder="Paste your fine-grained token" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="token-note" required>
+      <p class="links-note" id="token-note">This site keeps the token in this tab's memory and sends it only to GitHub. It is never saved to browser storage or the repository, and is cleared when you reload or close the page. Do not send it in chat.</p>
+      <p class="form-error" id="auth-error" role="alert"></p>
+      <div class="dialog-actions"><a class="auth-help" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener noreferrer">Token setup guide ↗</a><button type="submit" class="save-button" id="connect-github">Connect GitHub <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+
   <dialog id="editor" aria-labelledby="editor-title">
-    <form id="editor-form">
+    <form id="editor-form" method="dialog">
       <div class="dialog-heading"><p class="eyebrow" id="editor-slot">PROJECT 01</p><button type="button" class="close-button" data-close="editor" aria-label="Close project editor">×</button></div>
       <h2 id="editor-title">Add a project.</h2>
-      <p class="dialog-note">Add a file, a link, or both. Changes are saved in this browser only.<br>To publish your finished work, share it in the chat.</p>
+      <p class="dialog-note">Save &amp; publish updates the public portfolio for everyone. GitHub Pages may take a few minutes to finish deployment.</p>
+      <p class="draft-editor-note" id="draft-editor-note" hidden>You are reviewing a saved local draft. Publishing will make its contents public.</p>
       <label class="field-label" for="work-title">Project name</label><input id="work-title" name="title" maxlength="40" placeholder="Give your project a name" required>
       <label class="field-label" for="work-category">Category <span>Optional</span></label><input id="work-category" name="category" maxlength="24" placeholder="e.g. Game design / Photography / Branding">
       <label class="field-label" for="work-description">Short description <span>Optional</span></label><textarea id="work-description" name="description" rows="2" maxlength="180" placeholder="A few words about this project"></textarea>
@@ -59,8 +82,9 @@
       <label class="field-label" for="work-itch">itch.io URL <span>Optional</span></label><input type="url" id="work-itch" name="itchUrl" maxlength="2048" placeholder="https://username.itch.io/project" inputmode="url" autocomplete="off" spellcheck="false" aria-describedby="links-note">
       <p class="links-note" id="links-note">Links work without a file. They open in a new tab.</p>
       <label class="upload-area" id="upload-area" for="work-file"><span class="upload-plus" aria-hidden="true">＋</span><strong id="file-label">Choose a file or drop it here</strong><span>JPG, PNG, WebP, GIF, PDF, MP4, WebM · Up to 100 MB</span><input type="file" id="work-file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf,video/mp4,video/webm"></label>
+      <button class="text-button reset-file" type="button" id="reset-file" hidden>Cancel file selection</button>
       <p class="form-error" id="form-error" role="alert"></p>
-      <div class="dialog-actions"><button class="remove-button" type="button" id="remove-work" hidden>Remove project</button><button class="save-button" type="submit" id="save-work">Save preview <span aria-hidden="true">↗</span></button></div>
+      <div class="dialog-actions"><button class="remove-button" type="button" id="remove-work" hidden>Remove project</button><button class="save-button" type="submit" id="save-work">Save &amp; publish <span aria-hidden="true">↗</span></button></div>
     </form>
   </dialog>
   <dialog id="about" aria-labelledby="about-title"><div class="dialog-heading"><p class="eyebrow">ABOUT THIS SPACE</p><button class="close-button" data-close="about" aria-label="Close about">×</button></div><h2 id="about-title">Work in progress.</h2><p class="about-copy">A collection of ideas and experiments.<br>Four spaces for the projects to come.</p><p class="about-small">New work will appear here when it's ready.</p></dialog>
