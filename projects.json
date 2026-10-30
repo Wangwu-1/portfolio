@@ -1,6 +1,15 @@
 {
   "version": 1,
-  "revision": "2be79960-0fb3-4914-be42-c3fd74f56a1f",
-  "updatedAt": "2026-10-30T15:08:02.364Z",
-  "projects": []
+  "revision": "4d1eb5ea-c048-4675-aeaa-209d9a0148ff",
+  "updatedAt": "2026-10-30T15:29:01.004Z",
+  "projects": [
+    {
+      "slot": 0,
+      "title": "Gurgle Vault",
+      "category": "",
+      "description": "",
+      "gitUrl": "https://github.com/Wangwu-1/-2d-dungeon-rpg",
+      "itchUrl": "https://wangwu-1.itch.io/gurgle-vault"
+    }
+  ]
 }
