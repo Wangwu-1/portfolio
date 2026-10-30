@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": "cc6a9bde-2bdd-4998-8890-bf7ecac6ee15",
-  "updatedAt": "2026-10-30T23:29:16.694Z",
+  "revision": "6994380f-34bc-462b-a383-42722295d92c",
+  "updatedAt": "2026-10-30T23:29:39.765Z",
   "projects": [
     {
       "slot": 0,
@@ -25,10 +25,10 @@
       "gitUrl": "https://github.com/APieceOfToast123/GWBGameJam",
       "itchUrl": "https://apieceoftoast123.itch.io/balance-or-be-baked",
       "media": {
-        "path": "assets/projects/1/102d2639-a085-41f3-a40f-e93aa8794c39.pdf",
+        "path": "assets/projects/1/c9bd69b8-e1d1-4bdc-8097-e084509eeccb.pdf",
         "mime": "application/pdf",
-        "name": "Wangxiangming_Project3.pdf",
-        "size": 10940670
+        "name": "Wangxiangming_Project4.pdf",
+        "size": 10434946
       }
     },
     {
