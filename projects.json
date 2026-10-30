@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": "6d515e97-ade1-4f81-b6c0-45deb1ba803a",
-  "updatedAt": "2026-10-30T23:28:08.627Z",
+  "revision": "710dc29b-df4e-4f91-93ab-c8e8a9db1265",
+  "updatedAt": "2026-10-30T23:28:24.004Z",
   "projects": [
     {
       "slot": 0,
@@ -37,7 +37,13 @@
       "category": "",
       "description": "",
       "gitUrl": "https://github.com/mianyoubiaoqing/CIGAgamejam",
-      "itchUrl": "https://wangwu-1.itch.io/swiper-yes-swiping"
+      "itchUrl": "https://wangwu-1.itch.io/swiper-yes-swiping",
+      "media": {
+        "path": "assets/projects/2/5abfab4c-0709-4f1b-ac4f-acaef717a8fb.pdf",
+        "mime": "application/pdf",
+        "name": "Wangxiangming_Project4.pdf",
+        "size": 10434946
+      }
     }
   ]
 }
