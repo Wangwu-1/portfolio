@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": "4d1eb5ea-c048-4675-aeaa-209d9a0148ff",
-  "updatedAt": "2026-10-30T15:29:01.004Z",
+  "revision": "13d89a72-108d-4665-9743-85d0af1d6cba",
+  "updatedAt": "2026-10-30T15:29:22.252Z",
   "projects": [
     {
       "slot": 0,
@@ -10,6 +10,14 @@
       "description": "",
       "gitUrl": "https://github.com/Wangwu-1/-2d-dungeon-rpg",
       "itchUrl": "https://wangwu-1.itch.io/gurgle-vault"
+    },
+    {
+      "slot": 2,
+      "title": "Swiper yes Swiping",
+      "category": "",
+      "description": "",
+      "gitUrl": "https://github.com/mianyoubiaoqing/CIGAgamejam",
+      "itchUrl": "https://wangwu-1.itch.io/swiper-yes-swiping"
     }
   ]
 }
