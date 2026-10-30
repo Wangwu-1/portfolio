@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": "67f68ecb-81d9-4829-9509-12b1ab78afa2",
-  "updatedAt": "2026-10-30T23:27:48.320Z",
+  "revision": "6d515e97-ade1-4f81-b6c0-45deb1ba803a",
+  "updatedAt": "2026-10-30T23:28:08.627Z",
   "projects": [
     {
       "slot": 0,
@@ -9,7 +9,13 @@
       "category": "",
       "description": "",
       "gitUrl": "https://github.com/Wangwu-1/-2d-dungeon-rpg",
-      "itchUrl": "https://wangwu-1.itch.io/gurgle-vault"
+      "itchUrl": "https://wangwu-1.itch.io/gurgle-vault",
+      "media": {
+        "path": "assets/projects/0/df86ac4f-7a80-49ac-9139-043412e242ea.pdf",
+        "mime": "application/pdf",
+        "name": "Wangxiangming_Project1.pdf",
+        "size": 8291214
+      }
     },
     {
       "slot": 1,
