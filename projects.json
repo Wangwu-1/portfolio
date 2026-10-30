@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": "13d89a72-108d-4665-9743-85d0af1d6cba",
-  "updatedAt": "2026-10-30T15:29:22.252Z",
+  "revision": "63bd2ef8-b375-461f-9dc3-8c16e8f89143",
+  "updatedAt": "2026-10-30T15:29:32.886Z",
   "projects": [
     {
       "slot": 0,
@@ -10,6 +10,14 @@
       "description": "",
       "gitUrl": "https://github.com/Wangwu-1/-2d-dungeon-rpg",
       "itchUrl": "https://wangwu-1.itch.io/gurgle-vault"
+    },
+    {
+      "slot": 1,
+      "title": "Balance or Be Baked",
+      "category": "",
+      "description": "",
+      "gitUrl": "https://github.com/APieceOfToast123/GWBGameJam",
+      "itchUrl": "https://apieceoftoast123.itch.io/balance-or-be-baked"
     },
     {
       "slot": 2,
